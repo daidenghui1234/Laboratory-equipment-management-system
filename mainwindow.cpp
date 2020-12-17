@@ -1,6 +1,7 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "equipment.h"
+#include "loginwindow.h"
 
 #include <QMessageBox>
 #include <QSqlError>
@@ -19,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->comboBox_s,&QComboBox::currentTextChanged,this,&MainWindow::timeshow);
     connect(ui->toolBox,&QToolBox::currentChanged,this,&MainWindow::intttable);
     connect(ui->toolBox_2,&QToolBox::currentChanged,this,&MainWindow::initTable_3);
+    connect(ui->action_logout,&QAction::triggered,this,&MainWindow::hidMainWindows);
 }
 
 MainWindow::~MainWindow()
@@ -622,6 +624,16 @@ int MainWindow::getScrapnum()
     return query.value(0).toInt();
 }
 
+void MainWindow::hidMainWindows()
+{
+    this->hide();
+    LoginWindow login;
+    login.show();
+    if(login.exec() == QDialog::Accepted){
+        this->show();
+    }
+}
+
 // 报废
 void MainWindow::on_pushButton_9_clicked()
 {
@@ -657,4 +669,49 @@ void MainWindow::on_pushButton_11_clicked()
         outputOneEqu_scrap(rep,i);
         i++;
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->LineEdit->clear();
+    ui->LineEdit->clear();
+    ui->LineEdit_2->clear();
+    ui->LineEdit_3->clear();
+    ui->LineEdit_4->clear();
+    ui->LineEdit_5->clear();
+    ui->LineEdit_6->clear();
+    ui->dateEdit->clear();
+    ui->LineEdit_8->clear();
+    ui->LineEdit_9->clear();
+    ui->LineEdit_lot->clear();
+
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->LineEdit_r_iden_1->clear();
+    ui->LineEdit_r_name_1->clear();
+    ui->LineEdit_r_money_1->clear();
+    ui->LineEdit_r_peo_1->clear();
+    ui->LineEdit_r_pro_1->clear();
+    ui->LineEdit_r_num_1->clear();
+    ui->LineEdit_r_lot->clear();
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    ui->LineEdit_r_name_2->clear();
+    ui->LineEdit_r_peo_2->clear();
+    ui->LineEdit_r_pro_2->clear();
+    ui->LineEdit_r_num_2->clear();
+    ui->LineEdit_r_iden_2->clear();
+}
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    ui->LineEdit_scrap_dn->clear();
+    ui->LineEdit_scrap_num->clear();
+    ui->LineEdit_scrap_lot->clear();
+    ui->dateTimeEdit->clear();
+    ui->LineEdit_scrap_mess->clear();
 }

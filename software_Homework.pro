@@ -29,19 +29,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         loginwindow.cpp \
-        resetpass.cpp \
         equipment.cpp
 
 HEADERS += \
         mainwindow.h \
         loginwindow.h \
-        resetpass.h \
         equipment.h
 
 FORMS += \
         mainwindow.ui \
-    loginwindow.ui \
-    resetpass.ui
+    loginwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

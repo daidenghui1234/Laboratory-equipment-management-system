@@ -24,7 +24,6 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui->label_4->setFont(font);
     ui->label_4->setStyleSheet("color:white;");
 
-
 }
 
 LoginWindow::~LoginWindow()

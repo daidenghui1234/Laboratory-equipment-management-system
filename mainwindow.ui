@@ -48,7 +48,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -370,7 +370,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page">
          <property name="geometry">
@@ -469,8 +469,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>115</width>
-           <height>144</height>
+           <width>1002</width>
+           <height>571</height>
           </rect>
          </property>
          <attribute name="label">
@@ -512,7 +512,7 @@
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page_3">
          <property name="geometry">
@@ -680,8 +680,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>227</width>
-           <height>290</height>
+           <width>1002</width>
+           <height>541</height>
           </rect>
          </property>
          <attribute name="label">
@@ -813,8 +813,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>117</width>
-           <height>146</height>
+           <width>1002</width>
+           <height>541</height>
           </rect>
          </property>
          <attribute name="label">
@@ -853,7 +853,7 @@
          </rect>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="page_6">
          <property name="geometry">

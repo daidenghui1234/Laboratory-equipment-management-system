@@ -33,6 +33,14 @@ private slots:
 
     void on_pushButton_11_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_10_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -66,6 +74,8 @@ private:
     void initTab_4();
     void outputOneEqu_scrap(RepairD &rep,int n);
     int getScrapnum();
+
+    void hidMainWindows();
 };
 
 #endif // MAINWINDOW_H
