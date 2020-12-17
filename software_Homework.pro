@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -28,15 +28,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    loginwindow.cpp \
-    resetpass.cpp \
-    admin.cpp
+        loginwindow.cpp \
+        resetpass.cpp \
+        equipment.cpp
 
 HEADERS += \
         mainwindow.h \
-    loginwindow.h \
-    resetpass.h \
-    admin.h
+        loginwindow.h \
+        resetpass.h \
+        equipment.h
 
 FORMS += \
         mainwindow.ui \

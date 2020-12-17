@@ -48,7 +48,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -338,17 +338,7 @@
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QLineEdit" name="LineEdit_7">
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="text">
-             <string>yyyy-mm-dd</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
+           <widget class="QDateEdit" name="dateEdit_2"/>
           </item>
          </layout>
         </item>
@@ -417,7 +407,7 @@
               </item>
               <item>
                <property name="text">
-                <string>机房名称</string>
+                <string>购买人</string>
                </property>
               </item>
              </widget>
@@ -432,10 +422,17 @@
                 <hour>0</hour>
                 <minute>0</minute>
                 <second>0</second>
-                <year>2016</year>
-                <month>1</month>
-                <day>1</day>
+                <year>2020</year>
+                <month>12</month>
+                <day>17</day>
                </datetime>
+              </property>
+              <property name="minimumDate">
+               <date>
+                <year>2020</year>
+                <month>12</month>
+                <day>12</day>
+               </date>
               </property>
              </widget>
             </item>
@@ -472,8 +469,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1002</width>
-           <height>571</height>
+           <width>115</width>
+           <height>144</height>
           </rect>
          </property>
          <attribute name="label">
@@ -515,15 +512,15 @@
          </rect>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="page_3">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>233</width>
-           <height>339</height>
+           <width>1002</width>
+           <height>541</height>
           </rect>
          </property>
          <attribute name="label">
@@ -625,7 +622,7 @@
             <item row="5" column="1">
              <widget class="QLineEdit" name="LineEdit_r_iden_1">
               <property name="text">
-               <string>由日期加上维修请求的序号，如2016102910  为2016/10/29 的第10次请求</string>
+               <string>由日期加上维修请求的序号，如2020121710  为2020/12/17 的第10次请求</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -800,7 +797,7 @@
             <item row="5" column="1">
              <widget class="QLineEdit" name="LineEdit_r_iden_2">
               <property name="text">
-               <string>由日期加上维修请求的序号，如2016102910  为2016/10/29 的第10次请求</string>
+               <string>由日期加上维修请求的序号，如2020121710  为2020/12/17 的第10次请求</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -816,8 +813,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1002</width>
-           <height>541</height>
+           <width>117</width>
+           <height>146</height>
           </rect>
          </property>
          <attribute name="label">
@@ -863,8 +860,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>227</width>
-           <height>283</height>
+           <width>1002</width>
+           <height>571</height>
           </rect>
          </property>
          <attribute name="label">
@@ -943,12 +940,13 @@
              </widget>
             </item>
             <item row="3" column="1">
-             <widget class="QLineEdit" name="lineEdit_scrap_date">
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-              <property name="placeholderText">
-               <string>yyyy/mm/dd</string>
+             <widget class="QDateTimeEdit" name="dateTimeEdit">
+              <property name="minimumDate">
+               <date>
+                <year>2020</year>
+                <month>12</month>
+                <day>10</day>
+               </date>
               </property>
              </widget>
             </item>

@@ -1,8 +1,10 @@
-#ifndef LOGINWINDOW_H
+﻿#ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
 #include <QDialog>
 #include <QMouseEvent>
+
+#include <QtSql/QSqlDatabase>
 namespace Ui {
 class LoginWindow;
 }
@@ -28,6 +30,10 @@ private slots:
 
 private:
     Ui::LoginWindow *ui;
+
+    QSqlDatabase sql;
+    void initDataBase();
+    bool verifyLogin(const QString name,const QString password);
 };
 
 #endif // LOGINWINDOW_H

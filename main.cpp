@@ -1,6 +1,5 @@
 ﻿#include "mainwindow.h"
 #include "loginwindow.h"
-#include <admin.h>
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -18,8 +17,4 @@ int main(int argc, char *argv[])
     else {
         return 0;
     }
-/*    MainWindow m;
-    qRegisterMetaType<Admin>();
-    m.show();
-    return a.exec();*/
 }

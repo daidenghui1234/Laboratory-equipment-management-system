@@ -1,4 +1,4 @@
-#include "loginwindow.h"
+﻿#include "loginwindow.h"
 #include "ui_loginwindow.h"
 #include <QMouseEvent>
 #include <string.h>
@@ -8,12 +8,16 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QFont>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
 
 LoginWindow::LoginWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
+    initDataBase();
     setWindowFlags(Qt::FramelessWindowHint);
 //  this->setAttribute(Qt::WA_TranslucentBackground);   //设置背景透明
     QFont font("Microsoft YaHei",20,QFont::Bold - 75);
@@ -53,27 +57,9 @@ void LoginWindow::on_Exit_clicked()
 
 void LoginWindow::on_Login_clicked( )
 {
-    QString userName,Password;
-    QFile file("admin.text");
-    if(!file.open(QIODevice::ReadOnly|QIODevice::Text)){
-        qDebug()<<file.errorString();
-        file.close();
-        file.open(QIODevice::WriteOnly|QIODevice::Text);
-        file.write("kindol\n212799");
-        file.close();
-//        userName="kindol";
- //       Password="212799";
-    }
-    else{
-        userName = file.readLine();
-        Password = file.readLine();
-        file.close();
-    }
 
-
-    if(ui->username->text() == tr("kindol") & ui->password->text() == tr("212799")){
+    if(verifyLogin(ui->username->text(),ui->password->text())){
         accept();
-//        this->reject();
     }
     else{
         QMessageBox::warning(this,tr("warning"),tr("用户名或密码错误!"),QMessageBox::Yes);
@@ -81,6 +67,47 @@ void LoginWindow::on_Login_clicked( )
               ui->username->clear();
               ui->password->clear();
               ui->username->setFocus();//将光标移到用户名框内
-
     }
 }
+
+void LoginWindow::initDataBase()
+{
+    // 初始化数据库
+    sql = QSqlDatabase::addDatabase("QODBC");
+    sql.setHostName("(local)");//服务器名
+    sql.setDatabaseName("QSQLServer2");//数据源名
+    sql.setUserName("sa");//连接数据库用户名
+    sql.setPassword("123456");//连接数据库密码
+
+    if (!sql.open()) {
+        qDebug("Sql connect failed.");
+        qDebug() << sql.lastError().text();
+        QMessageBox::warning(nullptr, "警告", "无法连接数据库");
+    } else {
+        qDebug("Sql connected.");
+    }
+}
+
+bool LoginWindow::verifyLogin(const QString name, const QString password)
+{
+    QSqlQuery query;
+    query.exec("select * from [user]");
+    bool chekname=false;
+    bool chekpassword=false;
+    // 打印输出用户名和密码
+    while (query.next()) {
+        qDebug() << query.value(0).toInt()
+                 << query.value(1).toString()
+                 << query.value(2).toString();
+       chekname = (QString::compare(name,query.value(1).toString(),
+                                         Qt::CaseSensitive) == 0);
+       chekpassword = (QString::compare(password,query.value(2).toString(),
+                                             Qt::CaseSensitive) == 0);
+
+        if(chekname&&chekpassword){
+            return true;
+        }
+    }
+    return false;
+}
+
